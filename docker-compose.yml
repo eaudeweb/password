@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+
+  db:
+    image: mariadb:10.3
+    restart: always
+    env_file:
+      - current.env
+    volumes:
+      - storage_db:/var/lib/mysql
+
+  passbolt:
+    image: passbolt/passbolt
+
+volumes:
+  storage_db:
